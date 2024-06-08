@@ -3,3 +3,4 @@
 *.prx
 *.elf
 *~
+compile_commands.json

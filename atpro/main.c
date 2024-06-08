@@ -327,13 +327,13 @@ int setframebuf(void *topaddr, int bufferwidth, int pixelformat, int sync)
         displayCanvas.buffer = topaddr;
         displayCanvas.lineWidth = bufferwidth;
         displayCanvas.pixelFormat = pixelformat;
-        
+
         // HUD Painting Required
         if(hud_on) drawInfo(&displayCanvas);
-        
+
         // Notification Painting Required
         else drawNotification(&displayCanvas);
-        
+
         // Unlock State
         wait = 0;
     }

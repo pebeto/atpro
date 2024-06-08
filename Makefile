@@ -1,41 +1,60 @@
-TARGET = atpro
-OBJS = main.o libs.o hud.o draw.o logs.o
+ATPRO = atpro
+DISTRIBUTE = dist
 
-BUILD_PRX = 1
-USE_KERNEL_LIBC = 1
-USE_KERNEL_LIBS = 1
-
-CFLAGS = -Os -Wall
-
-ifeq ($(RELEASE), 1)
-CFLAGS += -DRELEASE=1
-else
-CFLAGS += -DDEBUG=1
-endif
-
-ifeq ($(CONFIG_620), 1)
-CFLAGS += -DCONFIG_620=1
-OBJS += imports/SysMemForKernel620.o
-endif
+FLAGS = CONFIG_620=1
 
 ifeq ($(CONFIG_63X), 1)
-CFLAGS += -DCONFIG_63X=1
-OBJS += imports/SysMemForKernel63X.o
+FLAGS = CONFIG_63X=1
 endif
 
 ifeq ($(CONFIG_660), 1)
-CFLAGS += -DCONFIG_660=1
-OBJS += imports/SysMemForKernel660.o
+FLAGS = CONFIG_660=1
 endif
 
-CXXFLAGS = $(CFLAGS) -fno-exceptions -fno-rtti
-ASFLAGS = $(CFLAGS)
+ifeq ($(RELEASE), 1)
+FLAGS += RELEASE=1
+else
+FLAGS += DEBUG=1
 
-PRX_EXPORTS = exports.exp
+ifeq ($(ENABLE_LOGGER), 1)
+FLAGS += ENABLE_LOGGER=1
+endif
 
-INCDIR = include
-LIBDIR = libs
-LIBS = -lpspsystemctrl_kernel -lpsppower -lpspwlan -lpsprtc_driver
+ifeq ($(TRACE), 1)
+FLAGS += TRACE=1
+endif
 
-PSPSDK=$(shell psp-config --pspsdk-path)
-include $(PSPSDK)/lib/build_prx.mak
+endif
+
+ifeq ($(ENABLE_PEERLOCK), 1)
+FLAGS += ENABLE_PEERLOCK=1
+endif
+
+ifeq ($(ENABLE_NETLOCK), 1)
+FLAGS += ENABLE_NETLOCK=1
+endif
+
+ifeq ($(PDP_DIRTY_MAGIC), 1)
+FLAGS += PDP_DIRTY_MAGIC=1
+endif
+
+ifeq ($(BROADCAST_TO_LOCALHOST), 1)
+FLAGS += BROADCAST_TO_LOCALHOST=1
+endif
+
+ifeq ($(LOCALHOST_AS_PEER), 1)
+FLAGS += LOCALHOST_AS_PEER=1
+endif
+
+all:
+	@mkdir $(DISTRIBUTE) || true
+	@mkdir $(DISTRIBUTE)/seplugins || true
+	@mkdir $(DISTRIBUTE)/kd || true
+	@touch $(DISTRIBUTE)/seplugins/hotspot.txt || true
+	@touch $(DISTRIBUTE)/seplugins/server.txt || true
+
+	@cd $(ATPRO); make $(FLAGS)
+
+clean:
+	@cd $(ATPRO); make clean $(FLAGS)
+	@rm -rf $(DISTRIBUTE) || true
