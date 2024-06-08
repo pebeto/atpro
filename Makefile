@@ -1,14 +1,15 @@
 ATPRO = atpro
+MEMAB = memab
 DISTRIBUTE = dist
 
+FLAGS = CONFIG_660=1
+
+ifeq ($(CONFIG_620), 1)
 FLAGS = CONFIG_620=1
+endif
 
 ifeq ($(CONFIG_63X), 1)
 FLAGS = CONFIG_63X=1
-endif
-
-ifeq ($(CONFIG_660), 1)
-FLAGS = CONFIG_660=1
 endif
 
 ifeq ($(RELEASE), 1)
@@ -54,7 +55,12 @@ all:
 	@touch $(DISTRIBUTE)/seplugins/server.txt || true
 
 	@cd $(ATPRO); make $(FLAGS)
+	@cd $(MEMAB); make $(FLAGS)
+
+	@mv $(ATPRO)/$(ATPRO).prx $(DISTRIBUTE)/seplugins/$(ATPRO).prx
+	@mv $(MEMAB)/$(MEMAB).prx $(DISTRIBUTE)/kd/$(MEMAB).prx
 
 clean:
 	@cd $(ATPRO); make clean $(FLAGS)
+	@cd $(MEMAB); make clean $(FLAGS)
 	@rm -rf $(DISTRIBUTE) || true
