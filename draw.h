@@ -28,11 +28,11 @@
 char convertChar(unsigned char c);
 
 typedef struct CANVAS {
-	int width;
-	int height;
-	int lineWidth;
-	int pixelFormat;
-	u32 *buffer;
+    int width;
+    int height;
+    int lineWidth;
+    int pixelFormat;
+    u32 *buffer;
 } CANVAS;
 
 extern int draw_min_x;

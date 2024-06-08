@@ -31,29 +31,29 @@
 
 // ASM Redirect Patch
 #define REDIRECT_FUNCTION(new_func, original) \
-	do { \
-		_sw(MAKE_JUMP((u32)new_func), ((u32)original)); \
-		_sw(NOP, ((u32)original)+4); \
-	} while ( 0 )
+    do { \
+        _sw(MAKE_JUMP((u32)new_func), ((u32)original)); \
+        _sw(NOP, ((u32)original)+4); \
+    } while ( 0 )
 
 // ASM Dummy Function Patch
 #define MAKE_DUMMY_FUNCTION_RETURN_0(a) do {\
-	_sw(0x03E00008, a);\
-	_sw(0x00001021, a + 4);\
+    _sw(0x03E00008, a);\
+    _sw(0x00001021, a + 4);\
 } while (0)
 
 typedef struct
 {
-	const char *name;
-	unsigned short version;
-	unsigned short attribute;
-	unsigned char entLen;
-	unsigned char varCount;
-	unsigned short funcCount;
-	unsigned int *fnids;
-	unsigned int *funcs;
-	unsigned int *vnids;
-	unsigned int *vars;
+    const char *name;
+    unsigned short version;
+    unsigned short attribute;
+    unsigned char entLen;
+    unsigned char varCount;
+    unsigned short funcCount;
+    unsigned int *fnids;
+    unsigned int *funcs;
+    unsigned int *vnids;
+    unsigned int *vars;
 } PspModuleImport;
 
 PspModuleImport *find_import_lib(SceModule *pMod, char *library);

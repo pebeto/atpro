@@ -1,15 +1,11 @@
-all:
-	mv atpro.prx ../dist/seplugins
-
 TARGET = atpro
 OBJS = main.o libs.o hud.o draw.o logs.o
 
-CFLAGS = -Os -G0 -Wall -fno-pic
+BUILD_PRX = 1
+USE_KERNEL_LIBC = 1
+USE_KERNEL_LIBS = 1
 
-INCDIR = ../../procfw/include
-LIBDIR = ../../procfw/libs
-
-LIBS = -lpspsystemctrl_kernel -lpsppower -lpspwlan -lpsprtc_driver
+CFLAGS = -Os -Wall
 
 ifeq ($(RELEASE), 1)
 CFLAGS += -DRELEASE=1
@@ -35,13 +31,11 @@ endif
 CXXFLAGS = $(CFLAGS) -fno-exceptions -fno-rtti
 ASFLAGS = $(CFLAGS)
 
-BUILD_PRX = 1
 PRX_EXPORTS = exports.exp
 
-USE_KERNEL_LIBC = 1
-USE_KERNEL_LIBS = 1
-
-LDFLAGS = -mno-crt0 -nostartfiles
+INCDIR = include
+LIBDIR = libs
+LIBS = -lpspsystemctrl_kernel -lpsppower -lpspwlan -lpsprtc_driver
 
 PSPSDK=$(shell psp-config --pspsdk-path)
-include $(PSPSDK)/lib/build.mak
+include $(PSPSDK)/lib/build_prx.mak

@@ -1,0 +1,135 @@
+[
+  {
+    "arguments": [
+      "/usr/local/pspdev/bin/psp-gcc",
+      "-Iinclude",
+      "-I.",
+      "-I/usr/local/pspdev/psp/include",
+      "-I/usr/local/pspdev/psp/sdk/include",
+      "-Os",
+      "-Wall",
+      "-DRELEASE=1",
+      "-DCONFIG_660=1",
+      "-D_PSP_FW_VERSION=600",
+      "-c",
+      "-o",
+      "main.o",
+      "main.c"
+    ],
+    "directory": "/home/pebeto/git/atpro",
+    "file": "/home/pebeto/git/atpro/main.c",
+    "output": "/home/pebeto/git/atpro/main.o"
+  },
+  {
+    "arguments": [
+      "/usr/local/pspdev/bin/psp-gcc",
+      "-Iinclude",
+      "-I.",
+      "-I/usr/local/pspdev/psp/include",
+      "-I/usr/local/pspdev/psp/sdk/include",
+      "-Os",
+      "-Wall",
+      "-DRELEASE=1",
+      "-DCONFIG_660=1",
+      "-D_PSP_FW_VERSION=600",
+      "-c",
+      "-o",
+      "libs.o",
+      "libs.c"
+    ],
+    "directory": "/home/pebeto/git/atpro",
+    "file": "/home/pebeto/git/atpro/libs.c",
+    "output": "/home/pebeto/git/atpro/libs.o"
+  },
+  {
+    "arguments": [
+      "/usr/local/pspdev/bin/psp-gcc",
+      "-Iinclude",
+      "-I.",
+      "-I/usr/local/pspdev/psp/include",
+      "-I/usr/local/pspdev/psp/sdk/include",
+      "-Os",
+      "-Wall",
+      "-DRELEASE=1",
+      "-DCONFIG_660=1",
+      "-D_PSP_FW_VERSION=600",
+      "-c",
+      "-o",
+      "hud.o",
+      "hud.c"
+    ],
+    "directory": "/home/pebeto/git/atpro",
+    "file": "/home/pebeto/git/atpro/hud.c",
+    "output": "/home/pebeto/git/atpro/hud.o"
+  },
+  {
+    "arguments": [
+      "/usr/local/pspdev/bin/psp-gcc",
+      "-Iinclude",
+      "-I.",
+      "-I/usr/local/pspdev/psp/include",
+      "-I/usr/local/pspdev/psp/sdk/include",
+      "-Os",
+      "-Wall",
+      "-DRELEASE=1",
+      "-DCONFIG_660=1",
+      "-D_PSP_FW_VERSION=600",
+      "-c",
+      "-o",
+      "draw.o",
+      "draw.c"
+    ],
+    "directory": "/home/pebeto/git/atpro",
+    "file": "/home/pebeto/git/atpro/draw.c",
+    "output": "/home/pebeto/git/atpro/draw.o"
+  },
+  {
+    "arguments": [
+      "/usr/local/pspdev/bin/psp-gcc",
+      "-Iinclude",
+      "-I.",
+      "-I/usr/local/pspdev/psp/include",
+      "-I/usr/local/pspdev/psp/sdk/include",
+      "-Os",
+      "-Wall",
+      "-DRELEASE=1",
+      "-DCONFIG_660=1",
+      "-D_PSP_FW_VERSION=600",
+      "-c",
+      "-o",
+      "logs.o",
+      "logs.c"
+    ],
+    "directory": "/home/pebeto/git/atpro",
+    "file": "/home/pebeto/git/atpro/logs.c",
+    "output": "/home/pebeto/git/atpro/logs.o"
+  },
+  {
+    "arguments": [
+      "/usr/local/pspdev/bin/psp-gcc",
+      "-Iinclude",
+      "-I.",
+      "-I/usr/local/pspdev/psp/include",
+      "-I/usr/local/pspdev/psp/sdk/include",
+      "-Os",
+      "-Wall",
+      "-DRELEASE=1",
+      "-DCONFIG_660=1",
+      "-Iinclude",
+      "-I.",
+      "-I/usr/local/pspdev/psp/include",
+      "-I/usr/local/pspdev/psp/sdk/include",
+      "-Os",
+      "-Wall",
+      "-DRELEASE=1",
+      "-DCONFIG_660=1",
+      "-c",
+      "-o",
+      "imports/SysMemForKernel660.o",
+      "imports/SysMemForKernel660.S"
+    ],
+    "directory": "/home/pebeto/git/atpro",
+    "file": "/home/pebeto/git/atpro/imports/SysMemForKernel660.S",
+    "output": "/home/pebeto/git/atpro/imports/SysMemForKernel660.o"
+  }
+]
